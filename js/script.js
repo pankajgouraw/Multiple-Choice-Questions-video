@@ -11,6 +11,8 @@ $(function(){
      let questionIndex=0; 
 
 
+
+
      // function to show the question
      function displayQueastions(){
         for(questionIndex; questionIndex < questionPerPage; questionIndex++ ){
@@ -70,7 +72,18 @@ $(function(){
             </div>`;
 
             mcqContainer.append(html);
-        }
+
+        }   //for loop end here
+
+        // change the position of ans options
+        let optContainer = $('.mcqWrapper #mcqWrapper .optContainer');
+        $.each(optContainer,function(index, value){
+            let ansContainer = $(this).find('.ans');
+            $.each(ansContainer,function(index,value){
+                $(this).css({'order':Math.floor((Math.random() * 4) + 1)});
+            })
+        })   // end change the position of ans options
+
      }
      // End function to show the question
 
@@ -80,7 +93,7 @@ $(function(){
         console.log(questionIndex);
      },2000)
 
-     let optContainer = $('.optContainer');
+     let optContainer = $('.mcqWrapper #mcqWrapper .optContainer');
 
      // function check the answer
      function checkAnswer(){
@@ -93,9 +106,12 @@ $(function(){
         // loop on the array
         $.each(ansDiv, function(index, value){
             let inputName = $(this).attr('name');
-            // console.log(inputName);
+            console.log(value);
+            console.log("input tag name: "+inputName);
             let selectChecked  = $("input[name="+inputName+"]:checked");
+            console.log("selected checkbox: "+selectChecked);
             let radioLength = selectChecked.length;
+            // console.log("radio checked lenght :"+radioLength);
             // console.log("input radio value : "+radioLength);
 
             // check if student dont select any field
@@ -103,17 +119,18 @@ $(function(){
                if($(this).hasClass('corrAns')){
                      if($(this).is(':checked')){
                         let rightSign = $(this).parent().parent().parent().prev().find('.right');
+                        // console.log(rightSign)
                         rightSign.fadeIn();
-                        console.log(rightSign);
                         totalCorrectAns++;
                         console.log("wow you select the correct answer...");
                       }else{
                         let wrongSign = $(this).parent().parent().parent().prev().find('.wrong');
                         wrongSign.fadeIn();
+                        // console.log(wrongSign);
                       }
                 }
             }else{
-                     console.log('Please complete all the question...');
+                    console.log("Please Complete all the questions!");
             }
         })
         // end iteration
@@ -123,11 +140,41 @@ $(function(){
     }
     // check answer function end here....
 
+   // check answer on click
     $('#checkAns').click(function(){
+        $('.mcqWrapper #mcqWrapper .ans input').attr("disabled","disabled");
+        // $(this).attr( "disabled", "disabled" );
+        $('#showAns').fadeIn();
+        $('#nextQuest').fadeIn();
        checkAnswer(); 
     })
+    
+
+    // show the all answer
+    $('#showAns').click(function(){
+          $('.mcqWrapper #mcqWrapper .wrong').fadeOut();
+          $('.mcqWrapper #mcqWrapper .right').fadeIn();
+          $('.mcqWrapper #mcqWrapper .ans input').prop('checked', false);
+          $('.mcqWrapper #mcqWrapper .corrAns').prop('checked', true);
+    });
+
+        // next Questions the all answer
+    $('#nextQuest').click(function(){
+        $('#showAns').fadeOut();
+        $('#nextQuest').fadeOut();
+        $('#checkAns').removeAttr('disabled');
+        mcqContainer.empty();
+        questionPerPage+= 5;
+        displayQueastions();
+    });
 
 
- 
+   // $('input').click(function(){
+   //  console.log("workign..");
+   // })
+
+   // $('body #mcqWrapper').on('click', 'input', function() {
+   //     console.log("its done...")
+   // });
 
 });

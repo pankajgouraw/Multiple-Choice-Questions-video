@@ -61,8 +61,8 @@ box-shadow: 0px 0px 15px #000;
 }
 .videoContainer{}
 .videoContainer video{
-  width:130px;
-}
+    width: 130px;
+    height: 80px;}
 label{
 cursor: pointer;
 font-size: 20px;
@@ -75,10 +75,32 @@ display: none;
 
 .questionContainer:first-child{padding-top:0px;}
 
-.operationButtons{}
-.operationButtons #checkAns{
+.operationButtons button{
+  padding: 10px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  background: #2196F3;
+  margin:5px;
+  cursor:pointer;
 
 }
+.operationButtons{
+  text-align: center;
+  padding-top: 15px;
+}
+.operationButtons #showAns{
+  display: none;
+}
+.operationButtons #checkAns{
+  background: #2196F3;
+}
+
+.operationButtons #nextQuest{
+      display: none;
+}
+
 
 /* Customize the label (the container) */
 .labelContainer {
