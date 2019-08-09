@@ -2,7 +2,7 @@
 const bgColor = '#527549';
 const borderColor = '10px solid rgb(28, 151, 85)';
 const header = 'MCQ';
-let questionPerPage = 5;
+let questPerPage = 5;
 const data = [
 	{
 		'question' : 'Which animal in this video1?',
