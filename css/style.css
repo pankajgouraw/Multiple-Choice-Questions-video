@@ -1,108 +1,121 @@
-
-*{
-margin:0px;
-padding:0px;
+* {
+margin: 0px;
+padding: 0px;
 }
-body{
+body {
 height: 100vh;
 /*background: radial-gradient(#673AB7, #00968859);*/
 }
-#header .logo h3{
+#header .logo h3 {
 flex-grow: 1;
 text-align: center;
 font-family: cursive;
 font-size: 28px;
 color: #fff;
 }
-#header .logo{
+#header .logo {
 margin: 0px auto;
 display: flex;
 align-items: center;
 }
-#header{
-margin-bottom:25px;
+#header {
+margin-bottom: 25px;
 margin-top: 15px;
 }
-.container{
-max-width:1200px;
-margin:0px auto;
-margin:auto;
-padding:15px;
+.container {
+max-width: 1200px;
+margin: 0px auto;
+margin: auto;
+padding: 15px;
 }
-.mcqWrapper{
+.mcqWrapper {
 background: #fff;
 padding: 15px;
 padding-bottom: 15px;
 box-shadow: 0px 0px 15px #000;
 }
-.questionContainer{
-  display: flex;
-  padding: 13px 0px;
-  border-bottom: 1px solid #999;
-  flex-wrap: wrap;
+.questionContainer {
+display: flex;
+padding: 13px 0px;
+border-bottom: 1px solid #999;
+flex-wrap: wrap;
 }
-.questOptContainer{
-  flex-grow: 1;
+.questOptContainer {
+flex-grow: 1;
 }
-.questContainer{}
-.question{
-  margin: 10px 0px;
+.questContainer {}
+.question {
+margin: 10px 0px;
 }
-.optContainer{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
+.optContainer {
+display: flex;
+justify-content: space-between;
+margin-top: 15px;
 }
-.optContainer .ans p{ font-family: sans-serif;
-    font-size: 16px;}
-.optContainer .ans{
-  display: flex;
-  margin-right: 15px;
+.optContainer .ans p {
+font-family: sans-serif;
+font-size: 16px;
 }
-.videoContainer{}
-.videoContainer video{
-    width: 200px;
-    height: 112px;
-  }
-label{
+.optContainer .ans {
+display: flex;
+margin-right: 15px;
+    width: 33%;
+}
+.videoContainer {}
+.videoContainer video {
+width: 200px;
+height: 112px;
+}
+label {
 cursor: pointer;
 font-size: 20px;
 text-transform: capitalize;
-cursor:pointer;}
-
-.right, .wrong{
+cursor: pointer;
+}
+.right,
+.wrong {
 display: none;
 }
-
-.questionContainer:first-child{padding-top:0px;}
-
-.operationButtons button{
-  padding: 10px 10px;
-  border-radius: 4px;
-  font-size: 16px;
-  color: #fff;
-  border: none;
-  background: #2196F3;
-  margin:5px;
-  cursor:pointer;
-
+.questionContainer:first-child {
+padding-top: 0px;
 }
-.operationButtons{
-  text-align: center;
-  padding-top: 15px;
+.operationButtons button {
+padding: 10px 10px;
+border-radius: 4px;
+font-size: 16px;
+color: #fff;
+border: none;
+background: #2196F3;
+margin: 5px;
+cursor: pointer;
 }
-.operationButtons #showAns{
-  display: none;
+.operationButtons {
+text-align: center;
+padding-top: 15px;
 }
-.operationButtons #checkAns{
-  background: #2196F3;
+#tryAgain {
+display: none;
 }
-
-.operationButtons #nextQuest{
-      display: none;
+.operationButtons #showAns {
+display: none;
 }
-
-
+.operationButtons #checkAns {
+background: #2196F3;
+position: relative;
+}
+#checkAns .tooltip {
+position: absolute;
+top: -71px;
+background: red;
+padding: 10px;
+width: 200px;
+border-radius: 4px;
+left: -67px;
+display: none;
+}
+.operationButtons #nextQuest {
+display: none;
+}
 /* Customize the label (the container) */
 .labelContainer {
 display: block;
@@ -133,7 +146,7 @@ height: 16px;
 width: 16px;
 background-color: #eee;
 border-radius: 50%;
-border:1px solid #2196F3;
+border: 1px solid #2196F3;
 }
 /* On mouse-over, add a grey background color */
 .labelContainer:hover input ~ .checkmark {
@@ -162,26 +175,48 @@ height: 8px;
 border-radius: 50%;
 background: white;
 }
-
-
-
-
-
-@media screen and (max-width: 768px) {
-
-  .questOptContainer{
-  flex-grow: 1;order: 1;
-  }
-  .questionContainer{
-    flex-direction: column;
-    text-align:center;
-  }
-  .optContainer{
-    flex-direction: column;
-  }
-  .optContainer .ans{
-    justify-content: center;
-    margin-bottom: 18px;
-  }
+.resutl {
+display: none;
+font-size: 22px;
+font-weight: 600;
+font-family: sans-serif;
+text-align: center;
+}
+#totalQuest {
+color: #e91e63;
+font-size: 30px;
 
 }
+#incorrectAns {
+color: #E91E63;
+font-size: 30px;
+}
+#correctAns {
+color: #E91E63;
+font-size: 30px;
+}
+#tryAgain a {
+color: #fff;
+text-decoration: none;
+}
+.disable {
+background: #b8daf5 !important;
+}
+@media screen and (max-width: 768px) {
+.questOptContainer {
+flex-grow: 1;
+order: 1;
+}
+.questionContainer {
+flex-direction: column;
+text-align: center;
+}
+.optContainer {
+flex-direction: column;
+}
+.optContainer .ans {
+    margin: auto;
+    margin-bottom: 18px;
+}
+} 
+/*  // media quesry end here...*/

@@ -8,13 +8,13 @@
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <script type="text/javascript" src="js/jquery.js"></script>
    </head>
-   <body>
-      <!-- <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;"> -->
+   <!-- <body> -->
+      <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
       <div class="container">
          <div id="header">
             <div class="logo">
               <a href="index.html"> <img src="img/logo.png"> </a>
-               <h3></h3>
+               <h3 class=""></h3>
             </div>
          </div>
          <div class="mcqWrapper">
@@ -70,8 +70,18 @@
             </div> -->
          	<!--end main question container -->
             </div>
+
+            <div class="resutl">
+               <p> Total Number of Question : <span id="totalQuest"></span></p>
+               <p> Correct Answer : <span id="correctAns"></span></p> 
+                 <p> Incorrect Answer : <span id="incorrectAns"></span></p>
+            </div>
             <div class="operationButtons">
-	         	<button id='checkAns'> Check</button>
+	         	<button id='tryAgain'><a href="index.html"> Try Again..</a>
+               </button> 
+                 <button id='checkAns'> Check
+                  <span class="tooltip">Please complete all the questions..</span>
+               </button>
 	         	<button id='showAns'> Show Ans</button>
 	         	<button id='nextQuest'> Next</button>
 	         </div>
